@@ -1,9 +1,9 @@
-import fastifyMultipart from '@fastify/multipart';
-import { FastifyInstance } from 'fastify';
-import { randomUUID } from 'node:crypto';
-import fs from 'node:fs';
-import path from 'node:path';
-import { pipeline } from 'node:stream';
+import fastifyMultipart from "@fastify/multipart";
+import { FastifyInstance } from "fastify";
+import { randomUUID } from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
+import { pipeline } from "node:stream";
 
 const { promisify } = require("node:util");
 const pump = promisify(pipeline);
@@ -39,5 +39,7 @@ export async function uploadVideoRoute(app: FastifyInstance) {
     );
 
     await pump(data.file, fs.createWriteStream(uploadDestination));
+
+    return reply.send();
   });
 }
