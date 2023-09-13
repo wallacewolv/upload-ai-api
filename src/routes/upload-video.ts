@@ -1,4 +1,4 @@
-import { fastifyMultipart } from '@fastify/multipart/index.d';
+import fastifyMultipart from '@fastify/multipart';
 import { FastifyInstance } from 'fastify';
 import { randomUUID } from 'node:crypto';
 import fs from 'node:fs';
